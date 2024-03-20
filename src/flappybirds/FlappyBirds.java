@@ -19,6 +19,7 @@ public class FlappyBirds extends GameScreen {
 	private BufferedImage chimney;
 	private BufferedImage background;
 	private BufferedImage gameover;
+	private BufferedImage titlegame;
 	private Animation anhhung_anim;
 	private int point=0;
 	public static float g = 0.1f; // gia tốc trọng trường
@@ -30,13 +31,14 @@ public class FlappyBirds extends GameScreen {
 	private int GAME_PLAY_SCREEN = 1;
 	private int GAME_OVER_SCREEN = 2;
 	private int CurrenScreen = BEGIN_SCREEN;
-
+ 
 	public FlappyBirds() {
 		super(600, 600); // khởi tạo cửa sổ game;
 		try {
 			anhhung = ImageIO.read(new File("asset/anhhung.png"));
 			background = ImageIO.read(new File("asset/background.png"));
 			gameover = ImageIO.read(new File("asset/gameover.png"));
+			titlegame = ImageIO.read(new File("asset/titlegame.png"));
 			
 		} catch (IOException e) {
 		}
@@ -111,7 +113,7 @@ public class FlappyBirds extends GameScreen {
 		
 		if (CurrenScreen == BEGIN_SCREEN) {
 		
-			g2.drawString("NHẬP VÀO PHÍM ĐỂ BẮT ĐẦU GAME", 300, 300);
+			g2.drawImage(titlegame,200,200,null);
 		}
 
 		else if (CurrenScreen == GAME_PLAY_SCREEN) {

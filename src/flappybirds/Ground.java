@@ -11,7 +11,7 @@ import pkg2dgamesframework.Animation;
 import pkg2dgamesframework.Objects;
 
 public class Ground extends Objects{
-	private int x1,y1,x2,y2,x3,y3;
+	private int x1,y1,x2,y2,x3,y3,x4,y4;
 
 	private BufferedImage groundImage;
 	Ground(){
@@ -21,27 +21,32 @@ public class Ground extends Objects{
 	} catch (IOException e) {}
 	
 	this.x1 =0;
-	this.y1=500;
+	this.y1=550;
 	
-	this.x2= x1 + 1105;
-	this.y2 = 500;
+	this.x2= x1 + 546;
+	this.y2 = 550;
 	
-	this.x3= x2 + 1105;
-	this.y3 = 500;
+	this.x3= x2 + 546;
+	this.y3 = 550;
+	
+	this.x4= x3 + 546;
+	this.y4 = 550;
 	}
 	
 	public void update() {
 		 x1-=2;
 		 x2-=2;
 		 x3-=2;
-		if(x1<-1105)  x1=x3+1105;
-		if(x2 < -1105) x2=x3+1105;
-		if(x3 < -1105) x3=x1+1105;
+		 x4-=2;
+		if(x1 < -546) x1=x3+546;
+		if(x2 < -546) x2=x1+546;
+		if(x3 < -546) x3=x1+546;
 	}
 	public void paint(Graphics2D g2) {
 		g2.drawImage(groundImage, x1, y1,null);
 		g2.drawImage(groundImage, x2, y2,null);
 		g2.drawImage(groundImage, x3, y3,null);
+	//	g2.drawImage(groundImage, x4, y4,null);
 	}
 	 public int getYGround() {
 		 return this.y1;
