@@ -6,8 +6,8 @@ import pkg2dgamesframework.Objects;
 public class Chimney extends Objects{
 	
 private Rectangle rect;
-public static int wsize = 105;
-public static int hsize = 411;
+public static int wsize = 44;
+public static int hsize = 267;
 
 public Chimney(int x,int y,int w, int h) {
 	super(x,y,w,h);

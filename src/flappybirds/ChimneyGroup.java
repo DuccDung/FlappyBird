@@ -12,8 +12,8 @@ public class ChimneyGroup {
 private QueueList<Chimney> chimneys;
 private BufferedImage chimneyImage;
 private BufferedImage chimneyImage2;
-private int topchimneyY = -300;
-private int bottomchimneyY = 250;
+private int topchimneyY = -93;
+private int bottomchimneyY = 293;
 public static int SIZE = 6;
 
 public Chimney get(int id) {
@@ -22,23 +22,22 @@ public Chimney get(int id) {
 
 public int getRandomY() {
 	Random random = new Random();
-	int a = random.nextInt(10); 
-	return a*20;
+	int	a = random.nextInt(3)+1;
+        return a*30; 
 }
 
 public void resetChimney() {
 	chimneys = new QueueList<Chimney>();
 	Chimney cn;
 	for(int i=0;i<3;i++) {
-		cn =  new Chimney(600 + (i+1)*400,this.bottomchimneyY/*+this.getRandomY()*/,Chimney.wsize,Chimney.hsize);
+		cn =  new Chimney(600 + (i+1)*200,this.bottomchimneyY+ this.getRandomY(),Chimney.wsize,Chimney.hsize);
 		chimneys.push(cn);
-		cn =  new Chimney(600 + (i+1)*400,this.topchimneyY/*+this.getRandomY()*/,Chimney.wsize,Chimney.hsize);
+		cn =  new Chimney(600 + (i+1)*200,this.topchimneyY + this.getRandomY(),Chimney.wsize,Chimney.hsize);
 		chimneys.push(cn);
 	}
 }
 
 public ChimneyGroup() {
-	//System.out.println("up");
 	chimneys = new QueueList<Chimney>();
 	
 	try {
@@ -48,9 +47,9 @@ public ChimneyGroup() {
 	
 	Chimney cn;
 	for(int i=0;i<this.SIZE/2;i++) {
-		cn =  new Chimney(600 + (i+1)*400,this.bottomchimneyY + this.getRandomY(),Chimney.wsize,Chimney.hsize);
+		cn =  new Chimney(500 + (i+1)*200,this.bottomchimneyY + this.getRandomY(),Chimney.wsize,Chimney.hsize);
 		chimneys.push(cn);
-		cn =  new Chimney(600 + (i+1)*400,this.topchimneyY + this.getRandomY(),Chimney.wsize,Chimney.hsize);
+		cn =  new Chimney(500 + (i+1)*200,this.topchimneyY + this.getRandomY() ,Chimney.wsize,Chimney.hsize);
 		chimneys.push(cn);
 	}
 }
@@ -59,17 +58,17 @@ public void update() {
 		chimneys.get(i).update();
 	}
 	//System.out.println("update");
-		if(chimneys.get(0).getPosX() < -91) {
+		if(chimneys.get(0).getPosX() < -40) {
 			Chimney cn;
 			cn = chimneys.pop(); 
 			cn.setPosX(chimneys.get(4).getPosX()+300);
-			cn.setPosY(300 + this.getRandomY());
+			cn.setPosY(this.bottomchimneyY + this.getRandomY());
 			cn.setRect((int)cn.getPosX(),(int) cn.getPosY());
 			chimneys.push(cn);
 			
 			cn = chimneys.pop();
 			cn.setPosX(chimneys.get(4).getPosX());
-			cn.setPosY(-300 + this.getRandomY());
+			cn.setPosY(this.topchimneyY + this.getRandomY());
 			cn.setRect((int)cn.getPosX(),(int) cn.getPosY());
 			chimneys.push(cn);
 		}

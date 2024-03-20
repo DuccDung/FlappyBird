@@ -20,12 +20,12 @@ public abstract class GameScreen extends JFrame implements KeyListener{
     public static int KEY_PRESSED = 0;
     public static int KEY_RELEASED = 1;
     
-    public int CUSTOM_WIDTH  = 500;
-    public int CUSTOM_HEIGHT = 500;
+    public int CUSTOM_WIDTH  = 450;
+    public int CUSTOM_HEIGHT = 400;
     
     private GameThread G_Thread;
     
-    public static int MASTER_WIDTH = 500, MASTER_HEIGHT = 500;
+    public static int MASTER_WIDTH = 450, MASTER_HEIGHT = 400;
     
     public GameScreen(){
         InitThread();
