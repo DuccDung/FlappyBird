@@ -63,6 +63,7 @@ public class FlappyBirds extends GameScreen {
 		super(w, h);
 	}
     private void resetGame() {
+    	this.point =0;
     	bird.setPos(250,250);
     	bird.setvt(0.0f);
     	chimneys.resetChimney();
